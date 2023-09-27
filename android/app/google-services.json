@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933736221739",
+    "project_id": "gtask1-db1e1",
+    "storage_bucket": "gtask1-db1e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933736221739:android:b0e68da0162ffcb474ae6e",
+        "android_client_info": {
+          "package_name": "com.example.g_task1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9YHbb_WQ8rOoA018oLIvXq-SYupbD304"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
