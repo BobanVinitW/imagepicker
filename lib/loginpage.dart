@@ -1,9 +1,10 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:g_task1/MyApp.dart';
-import 'package:g_task1/allimage.dart';
 import 'package:g_task1/pictures.dart';
+
+import 'MyApp.dart';
+import 'allimage.dart';
 
 
 
@@ -22,15 +23,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
       appBar: AppBar(
-        backgroundColor: Colors.deepPurpleAccent.shade700,
-        title: Text(''),
+        title: Text('Image Post'),
         actions: [
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
           },
-              icon: Icon(Icons.add,))
+              icon: Icon(Icons.file_upload,))
         ],
       ),
       body: StreamBuilder(
@@ -77,16 +76,16 @@ class _MainPageState extends State<MainPage> {
           fontFamily: 'VujahdayScript-Regular'
       ),
       currentIndex: currentSelected,
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.indigo,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.image),
           label: 'All Images',
-          backgroundColor: Colors.lightBlueAccent,),
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.upload),
           label: 'Upload',
-          backgroundColor: Colors.lightBlueAccent,),
+        ),
       ],
       onTap: (int index) {
         setState(() {

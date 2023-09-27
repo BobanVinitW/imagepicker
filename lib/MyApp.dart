@@ -57,77 +57,82 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.green,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _image == null
-                ? Text('No image selected.')
-                : Image.file(File(_image!.path)),
-            TextFormField(
-              controller: titleController,
-              validator: (value){
-                if(value!.isEmpty){
-                  return "It is Empty";
-                }else{
-                  return null;
-                }
-              },
-              decoration: InputDecoration(
-                labelText: "Name",
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurpleAccent), // Set the border color
-                  borderRadius: BorderRadius.circular(10.0), // Adjust the border radius
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _image == null
+                  ? Text('No image selected.')
+                  : Image.file(File(_image!.path)),
+              SizedBox(height: 10,),
+              TextFormField(
+                controller: titleController,
+                validator: (value){
+                  if(value!.isEmpty){
+                    return "It is Empty";
+                  }else{
+                    return null;
+                  }
+                },
+                decoration: InputDecoration(
+                  labelText: "Name",
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurpleAccent), // Set the border color
+                    borderRadius: BorderRadius.circular(10.0), // Adjust the border radius
+                  ),
                 ),
               ),
-            ),
-            TextFormField(
-              controller: descpController,
-              validator: (value){
-                if(value!.isEmpty){
-                  return "It is Empty";
-                }else{
-                  return null;
-                }
-              },
-              decoration: InputDecoration(
-                labelText: "Category",
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurpleAccent), // Set the border color
-                  borderRadius: BorderRadius.circular(10.0), // Adjust the border radius
+              SizedBox(height: 10,),
+              TextFormField(
+                controller: descpController,
+                validator: (value){
+                  if(value!.isEmpty){
+                    return "It is Empty";
+                  }else{
+                    return null;
+                  }
+                },
+                decoration: InputDecoration(
+                  labelText: "Category",
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.deepPurpleAccent), // Set the border color
+                    borderRadius: BorderRadius.circular(10.0), // Adjust the border radius
+                  ),
                 ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: _captureImage,
-              child: Text('Capture Image'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue.shade800, // Background color
-                textStyle: TextStyle(
-                  color: Colors.white, // Text color
+              ElevatedButton(
+                onPressed: _captureImage,
+                child: Text('Capture Image'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue.shade800, // Background color
+                  textStyle: TextStyle(
+                    color: Colors.white, // Text color
+                  ),
                 ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: _uploadImageToFirebaseStorage,
-              child: Text('Upload Image to Firebase'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue.shade900, // Background color
-                textStyle: TextStyle(
-                  color: Colors.white, // Text color
+              ElevatedButton(
+                onPressed: _uploadImageToFirebaseStorage,
+                child: Text('Upload Image to Firebase'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue.shade900, // Background color
+                  textStyle: TextStyle(
+                    color: Colors.white, // Text color
+                  ),
                 ),
               ),
-            ),
-            _imageUrl != null
-                ? Image.network(
-              _imageUrl!,
-              height: 150.0,
-              width: 150.0,
-            )
-                : Container(),
-          ],
+              SizedBox(height: 10,),
+              _imageUrl != null
+                  ? Image.network(
+                _imageUrl!,
+                height: 150.0,
+                width: 150.0,
+              )
+                  : Container(),
+            ],
+          ),
         ),
       ),
     );

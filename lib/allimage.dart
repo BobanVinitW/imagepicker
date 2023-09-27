@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:g_task1/pictures.dart';
 
@@ -32,35 +34,23 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
+    return ListView.builder(
       itemCount: categoryImages.length,
       itemBuilder: (BuildContext context, int index) {
         return InkResponse(
-          child: Column(
-            children: [
-              Text(categories.elementAt(index),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),),
-              SizedBox(height: 10,),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white, // Background color of the frame
-                  border: Border.all(
-                    color: Colors.black, // Color of the frame border
-                    width: 4, // Width of the frame border
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                width: 200,
-                child: Image.network(categoryImages.elementAt(index),
-                ),
-              ),
-              SizedBox(height: 10,),
-              Text(desc.elementAt(index),style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
-            ],
+          child: ListTile(
+            leading: CircleAvatar(
+              radius: 50,
+              backgroundImage: NetworkImage(categoryImages.elementAt(index),
+            ),),
+            title: Text(categories.elementAt(index),style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),),
+            subtitle: Text(desc.elementAt(index),style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,),),
+
           ),
         );
-      }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 1
-    ),
+      }, //gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //crossAxisCount: 1
+    //),
     );
   }
 }
